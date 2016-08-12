@@ -31,7 +31,7 @@ var userRoutes = require('./routes/user');
 
 //mongoose.connect(mongohost+':'+mongoport+'/'+mongodbcollection);
 
-mongoose.connect('mongodb://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+mongoHost+':'+mongoPort+'/'+process.env.MONGODB_DATABASE)
+mongoose.connect('mongodb://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+mongoHost+':'+mongoPort+'/'+process.env.MONGODB_DATABASE);
 require('./config/passport');
 
 // uncomment after placing your favicon in /public
