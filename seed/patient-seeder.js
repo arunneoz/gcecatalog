@@ -1,6 +1,7 @@
 var Patient = require('../models/patient');
 
 var mongoose = require('mongoose');
+var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
 
 var mongoHost = process.env[mongoServiceName + "_SERVICE_HOST"] || 'localhost';
 var mongoPort = process.env[mongoServiceName + "_SERVICE_PORT"] || 27017;
