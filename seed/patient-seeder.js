@@ -2,7 +2,10 @@ var Patient = require('../models/patient');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('localhost:27017/pharmacyApp');
+var mongoHost = process.env[mongoServiceName + "_SERVICE_HOST"] || 'localhost';
+var mongoPort = process.env[mongoServiceName + "_SERVICE_PORT"] || 27017;
+
+mongoose.connect('mongodb://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+mongoHost+':'+mongoPort+'/'+process.env.MONGODB_DATABASE);
 
 var patient = [
     new Patient({
