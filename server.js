@@ -10,7 +10,11 @@ var passport = require('passport');
 var session = require('express-session');
 var validator = require('express-validator');
 var flash = require('connect-flash');
+<<<<<<< HEAD
 var MongoStore = require('connect-mongo')(session);
+=======
+var MongoStore = require('connect-mongo/es5')(session);
+>>>>>>> a426a40c300332fc7809c841770e850ecfb3ad79
 var port = process.env.PORT || 8000;
 var mongohost = process.env.MONGODBHOST || 'localhost';
 var mongoport = process.env.MONGODBPORT || 27017;

@@ -1,21 +1,27 @@
 {
   "name": "digital-pharmacy",
+<<<<<<< HEAD
   "main": "app.js",
   "dependencies": {
     "angular-date-picker": "^1.3.4",
     "angular-local-storage": "^0.5.0",
+=======
+  "version": "0.0.0",
+  "main": "server.js",
+  "dependencies": {
+>>>>>>> a426a40c300332fc7809c841770e850ecfb3ad79
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.13.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^1.2.0",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
-    "express": "~4.13.1",
+    "express": "~4.13.4",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
     "express-validator": "^2.20.8",
     "hbs": "~3.1.0",
-    "mongoose": "^4.4.16",
+    "mongoose": "^4.4.5",
     "morgan": "~1.6.1",
     "ngstorage": "^0.3.11",
     "node-schema-object": "^3.3.4",
