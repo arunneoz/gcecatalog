@@ -5,17 +5,27 @@ var mongoose =require('mongoose');
 
 // Schema
 var prescriptionSchema = new mongoose.Schema({
-    id: String,
-    patientid: String,
     drugname: String,
-    drugqty: Number,
+    startDate: String,
+    dea: String,
+    docName: String,
+    routeCode: String,
     drugdose: Number,
+    drugUnits: String,
+    drugDuration: Number,
     drugFreq: Number,
-    drugUnits: Number,
-    deanumber: String,
-    insuranceId: String
+    drugQty: Number,
+    drugCUnits: String,
+    patientInstructions: String,
+    pharmacistInstructions: String,
+    patientId: String,
+    status: String
 
 });
+
+
+
+
 
 // Return model
 module.exports = mongoose.model('Prescription', prescriptionSchema);

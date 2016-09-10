@@ -4,7 +4,8 @@ angular.module('pharmFE').factory('PatientService',
 
     return ({
       searchbyName: searchbyName,
-      getPatientinSession: getPatientinSession
+      getPatientinSession: getPatientinSession,
+      getDEABlackList: getDEABlackList
     });
 
     function searchbyName(name) {
@@ -15,6 +16,11 @@ angular.module('pharmFE').factory('PatientService',
     function getPatientinSession() {
     //  console.log(" In service" + name);
        return $http.get('/ecomm/api/getpatient/');
+    }
+
+    function getDEABlackList(deaNumber) {
+    //  console.log(" In service" + name);
+       return $http.get('/ecomm/api/verifydea/'+deaNumber);
     }
 
 

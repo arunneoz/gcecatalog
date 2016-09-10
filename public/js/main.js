@@ -1,4 +1,4 @@
-var pharmFE = angular.module('pharmFE', ['ngRoute']);
+var pharmFE = angular.module('pharmFE', ['ngRoute','ngMessages','ngStorage']);
 
 pharmFE.config(function ($routeProvider) {
   $routeProvider
@@ -24,13 +24,16 @@ pharmFE.config(function ($routeProvider) {
 
     .when('/prescribe', {
       templateUrl: 'partials/prescription.html',
-      controller: 'PatientCtrl',
       access: {restricted: true}
 
       })
 
       .when('/printlabel', {
         templateUrl: 'partials/prescriptionlabel.html'
+      })
+
+      .when('/tasks', {
+        templateUrl: 'partials/tasks.html'
       })
 
     .otherwise({

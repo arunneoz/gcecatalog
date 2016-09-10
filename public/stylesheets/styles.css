@@ -1182,3 +1182,11 @@ h1.page-header {
 }
 
 .btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+
+
+.invalid {
+  color: red;
+}
+.ng-invalid {
+  border-color: red;
+}

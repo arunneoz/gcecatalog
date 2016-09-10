@@ -131,7 +131,7 @@
                  </div>
 
              </div>
-          
+
 
 
 
@@ -140,7 +140,7 @@
           <div class="col-lg-8">
             <div class="well well-sm" ng-switch="divId">
               <div ng-switch-when="form">
-                 <form class="form-horizontal" ng-submit="" >
+                 <form class="form-horizontal" name="prescriptionForm" ng-controller="PrescriptionCtrl" ng-submit="createPrescription()">
                     <fieldset>
                        <legend>Create Prescription</legend>
                        <div class="form-group">
@@ -162,8 +162,12 @@
 
                          <div class="col-md-4">
 
-                           <input type="text" id="inputDEA" name="inputDEA" ng-model="prescriptionForm.dea" class="form-control" placeholder="DEA #"/>
-
+                           <input type="text" id="inputDEA" name="inputDEA" ng-model="prescriptionForm.dea" class="form-control" placeholder="DEA #" blacklist="coconuts,bananas,pears" required/>
+													 <span ng-messages="prescriptionForm.inputDEA.$error">
+											      <span class="invalid" ng-message="required">required</span>
+											         <span class="invalid" ng-message="blacklist">
+											          The Prescriber "{{prescriptionForm.dea}}" is not valid</span>
+											      </span>
                         </div>
 
                         <label for="inputUnits" class="col-md-2 control-label">Doc Name</label>
@@ -201,7 +205,7 @@
 
                           <div class="col-md-4">
 
-                            <input type="number" id="inputDose" name="inputDose[qty]" ng-model="prescriptionForm.dosage" class="form-control" value="0" min="0"/>
+                            <input type="number" id="inputDose" name="inputDose" ng-model="prescriptionForm.dosage" class="form-control" value="0" min="0"/>
 
                          </div>
 
@@ -209,10 +213,28 @@
 
                          <div class="col-md-4">
 
-                           <input type="number" id="inputdoseUnits" name="inputUnits[qty]" ng-model="prescriptionForm.dosageUnits" class="form-control" value="0" min="0">
+                           <input type="text" id="inputdoseUnits" name="inputUnits" ng-model="prescriptionForm.dosageUnits" class="form-control">
 
                         </div>
                           </div>
+
+
+													<div class="form-group">
+														 <label for="inputDuration" class="col-md-2 control-label">Duration</label>
+
+														 <div class="col-md-4">
+
+															 <input type="number" id="inputDuration" name="inputDuration"  ng-model="prescriptionForm.drugDuration"  class="form-control" value="0" min="0">
+														</div>
+
+													 <label for="inputFrequency" class="col-md-2 control-label">Frequency</label>
+
+													 <div class="col-md-4">
+
+														 <input type="number" id="inputFrequency" name="inputFrequency"  ng-model="prescriptionForm.drugFreq"  class="form-control" value="0" min="0">
+
+													</div>
+												 </div>
 
 
                        <div class="form-group">
@@ -220,34 +242,19 @@
 
                           <div class="col-md-4">
 
-                            <input type="number" id="inputQty" name="inputQty[qty]" class="form-control" ng-model="prescriptionForm.cdrugquantity" value="0" min="0">
+                            <input type="number" id="inputQty" name="inputQty[qty]" string-to-number class="form-control" ng-model="prescriptionForm.cdrugquantity" value="0" min="0">
                          </div>
 
                         <label for="inputUnits" class="col-md-2 control-label">Units</label>
 
                         <div class="col-md-4">
 
-                          <input type="number" id="inputUnits" name="inputUnits[qty]" ng-model="prescriptionForm.cdrugunits"  class="form-control" value="0" min="0">
+                          <input type="String" id="inputUnits" name="inputUnits" ng-model="prescriptionForm.cdrugunits"  class="form-control">
 
                        </div>
                          </div>
 
-                       <div class="form-group">
-                          <label for="inputDuration" class="col-md-2 control-label">Duration</label>
 
-                          <div class="col-md-4">
-
-                            <input type="number" id="inputDuration" name="inputDuration[qty]"  ng-model="prescriptionForm.drugDuration"  class="form-control" value="0" min="0">
-                         </div>
-
-                        <label for="inputFrequency" class="col-md-2 control-label">Frequency</label>
-
-                        <div class="col-md-4">
-
-                          <input type="number" id="inputFrequency" name="inputFrequency[qty]"  ng-model="prescriptionForm.drugFreq"  class="form-control" value="0" min="0">
-
-                       </div>
-                      </div>
                      <div class="form-group">
                         <label for="inputPatientInstructions" class="col-md-2 control-label">Patient Instructions</label>
 
@@ -266,12 +273,12 @@
                           <div align="center" class="col-md-8" >
                        <div class="form-group">
 
-                               <!-- <button type="button" class="btn btn-info-outline waves-effect btn-lg">Cancel</button>
-                              <button type="submit" class="btn btn-success-outline waves-effect btn-lg">Create Prescription</button> -->
+                              <!-- <button type="button" class="btn btn-info-outline waves-effect btn-lg">Cancel</button> -->
+                              <button type="submit" class="btn btn-success-outline waves-effect btn-lg" ng-disabled="prescriptionForm.$invalid" >  <i class="fa fa-ambulance fa-fw" ></i> Create Prescription</button>
 
 
-                           <a ng-href="#/printlabel" class="btn btn-block btn-info">
-                         <i class="fa fa-ambulance fa-fw" ></i> Submit Prescription </a>
+                           <!-- <a ng-href="#/printlabel" class="btn btn-block btn-info">
+                         <i class="fa fa-ambulance fa-fw" ></i> Submit Prescription </a> -->
                          </div>
                        </div>
                 </fieldset>
@@ -279,18 +286,35 @@
           </div>
             <div ng-switch-when="prescription">
 
-              <div class="panel panel-default">
+              <div class="panel panel-default" ng-controller="PrescriptionCtrl" data-ng-init="getPrescriptions()">
         					<div class="panel-heading">Precription List</div>
-        					<div class="panel-body">
-                    <table data-toggle="table" data-url="../tables/data1.json" >
+        					<div class="panel-body table-responsive">
+                    <table class="table">
   						              <thead>
   						                      <tr>
-  						                              <th data-field="id" data-align="right">Rx ID</th>
-  						                                    <th data-field="name">Drug Name</th>
-  						                                          <th data-field="qty">Drug Qty</th>
+  						                              <th>Rx ID</th>
+  						                              <th>Drug Name</th>
+  						                              <th>Drug Qty</th>
+																						<th>Status</th>
+																						<th>PatientId</th>
+																						<th></th>
   						                      </tr>
   						              </thead>
+														<tbody ng-repeat="prescription in prescriptions.data">
+																<tr>
+																	<td>{{prescription._id}}</td>
+																		<td>{{prescription.drugname}}</td>
+																			<td>{{prescription.drugQty}}</td>
+																				<td>{{prescription.status}}</td>
+																					<td>{{prescription.patientId}}</td>
+																					<td><a ng-href="#/printlabel">
+							                          <i class="fa fa-print fa-fw" ></i> Print Label </a>
+
+																</tr>
+														</tbody>
+
   						     </table>
+
         					</div>
         				</div>
 

@@ -1,6 +1,6 @@
 angular.module('pharmFE')
-    .controller('PatientCtrl', ['$scope', '$location', 'PatientService',
-    function ($scope, $location, PatientService) {
+    .controller('PatientCtrl', ['$scope', '$location', '$localStorage','PatientService','PharmacyService',
+    function ($scope, $location, $localStorage, PatientService,PharmacyService) {
 
      //$scope.startDate = new Date();
       $scope.getPatient = function() {
@@ -12,10 +12,21 @@ angular.module('pharmFE')
     // and fire search in case its value is not empty
 
     //$scope.patient = PatientService.getPatientinSession();
-    $scope.drugs = ["Hydrocodone-Acetaminophen", "Simvastatin", "Lisinopril", "Omeprazole", "Amlodipine Besylate", "Levothyroxine Sodium",
-     "Atorvastatin Calcium", "Azithromycin", "Furosemide", "Ciprofloxacin HCL", "Prednisone", "Metformin HCL",
-     "Amoxicillin", "Metoprolol Tartrate", "Tramadol"];
-       $scope.divId="form";
+    var div = $localStorage.divId;
+    if ( div == "prescription")
+    {
+      $scope.divId="prescription";
+    }
+    else {
+      $scope.divId="form";
+    }
+
+
+    //$scope.divId="form";
+    console.log ( "Retrieving scope div:" + $scope.divId);
+    console.log ( "Retrieving scope div:" + div);
+
+      //$scope.divId="form";
 
     PatientService.getPatientinSession()
       // handle success
@@ -37,9 +48,15 @@ angular.module('pharmFE')
 
 
 
+
+
+
+
     $scope.searchPatient = function () {
 
       // initial values
+     $localStorage.divId="form";
+     $localStorage.pId = "";
 
     console.log(" In controller" + $scope.patient);
       $scope.error = false;
