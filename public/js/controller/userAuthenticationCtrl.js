@@ -1,4 +1,4 @@
-angular.module('pharmFE').controller('loginController',
+angular.module('cards').controller('loginController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -30,12 +30,12 @@ angular.module('pharmFE').controller('loginController',
 }]);
 
 
-angular.module('pharmFE')
+angular.module('cards')
 .controller('NavbarController', ['$scope', function($scope){
   $scope.isCollapsed = true;
 }]);
 
-angular.module('pharmFE').controller('logoutController',
+angular.module('cards').controller('logoutController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -51,7 +51,7 @@ angular.module('pharmFE').controller('logoutController',
 
 }]);
 
-angular.module('pharmFE').controller('registerController',
+angular.module('cards').controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 

@@ -10,15 +10,11 @@ var passport = require('passport');
 var session = require('express-session');
 var validator = require('express-validator');
 var flash = require('connect-flash');
-<<<<<<< HEAD
 var MongoStore = require('connect-mongo')(session);
-=======
-var MongoStore = require('connect-mongo/es5')(session);
->>>>>>> a426a40c300332fc7809c841770e850ecfb3ad79
 var port = process.env.PORT || 8000;
 var mongohost = process.env.MONGODBHOST || 'localhost';
 var mongoport = process.env.MONGODBPORT || 27017;
-var mongodbcollection = process.env.MONGODBNAME || 'pharmacyApp';
+var mongodbcollection = process.env.MONGODBNAME || 'creditcards';
 
 var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
 var mongoHost = process.env[mongoServiceName + "_SERVICE_HOST"] || 'localhost';
@@ -28,7 +24,7 @@ console.log("mongohost:port ="+mongoHost+":"+mongoPort);
 
 var app = express();
 
-var pharmacyappRoutes = require('./routes/pharmacy');
+//var pharmacyappRoutes = require('./routes/pharmacy');
 var userRoutes = require('./routes/user');
 
 //mongoose.connect('localhost:mongoport/pharmacyApp');
@@ -66,7 +62,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/user', userRoutes);
-app.use('/ecomm', pharmacyappRoutes);
+//app.use('/ecomm', pharmacyappRoutes);
 app.get('/', function(req, res) {
 res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

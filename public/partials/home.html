@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
@@ -7,7 +7,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img src ="images/walgreens-logo.png" height=32 width=32 align="left"/><a class="navbar-brand" href="javascript:void(0)">Walgreens Pharmacy Application</a>
+				<a class="navbar-brand" href="#"><img src ="images/discover-logo.png" height=42 width=100 align="left"/><a class="navbar-brand" href="javascript:void(0)"></a>
 				<!-- <ul class="user-menu">
 					<li class="dropdown pull-right" ng-controller="logoutController">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -38,22 +38,11 @@
 	</nav>
 
 
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-
-<ul class="nav menu">
-  <li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home </a></li>
-  <li><a ng-href="#/tasks"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Tasks</a></li>
-
-
-</ul>
-
-</div>
-
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
   <div class="row">
       <ol class="breadcrumb">
         <li><a href="#/"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-        <li class="active">Patient</li>
+        <li class="active">Member</li>
       </ol>
     </div><!--/.row-->
       <div class="row">
@@ -62,7 +51,71 @@
          			</div>
          		</div>
 
-             <div class="row">
+  <div class="row">
+						<div class="col-xs-12 col-md-6 col-lg-3">
+
+
+							<div class="panel panel-white panel-widget">
+								<div class="row no-padding">
+									<div class="col-sm-3 col-lg-5 widget-left">
+										<svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"/></svg>
+
+
+									</div>
+									<div class="col-sm-9 col-lg-7 widget-right">
+										<div class="large">$2334.56</div>
+										<div class="text-muted">Current Balance</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+		</div>
+
+
+		<div class="col-xs-12 col-md-6 col-lg-3">
+
+
+			<div class="panel panel-white panel-widget">
+				<div class="row no-padding">
+					<div class="col-sm-3 col-lg-5 widget-left">
+					<svg class="glyph stroked sound on"><use xlink:href="#stroked-sound-on"/></svg>
+
+
+					</div>
+					<div class="col-sm-9 col-lg-7 widget-right">
+						<div class="large">$77.00</div>
+						<div class="text-muted">Next Payment Due 10/20/2016</div>
+					</div>
+				</div>
+			</div>
+</div>
+
+			<div class="col-xs-12 col-md-6 col-lg-3">
+
+
+				<div class="panel panel-white panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"/></svg>
+
+
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">$27.00</div>
+							<div class="text-muted">Cashback Bonus Earned</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+</div>
+</div>
+          <!--  <div class="row">
          			<div class="col-xs-12 col-md-6 col-lg-3">
          				<div class="panel panel-blue panel-widget">
          					<div class="row no-padding">
@@ -119,68 +172,45 @@
          				</div>
          			</div>
 
-         		</div>
+         		</div> -->
 
   <div class="row">
-			<div class="col-md-8" ng-controller="PatientCtrl">
 
-              <div class="panel panel-default chat">
-        				   	<div class="panel-heading" id="accordion"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg>Patient Search</div>
-        				   <div class="form-login">
-                    <div class="well well-sm">
+		<div class="col-md-10">
+					<div class="panel panel-info" ng-controller="CreditCardCtrl" data-ng-init="getAccountDetails(123456789)">
+						<div class="panel-heading">
+							<h3 class="panel-title">Posted Transactions</h3>
+							<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+						</div>
+						<div class="panel-body table-responsive">
 
-                    <div class="form-group">
-                       <input type="text" class="form-control" name="patient" ng-model="patient" placeholder="Patient">
-                       <a ng-click="searchPatient()" class="btn btn-block btn-info">
-                       <i class="fa fa-search" aria-hidden="true"></i>  Search Patients  </a>
-
-
-                    </div>
-
-
-                   </div>
-
-
-	   <div class="col-md-6" >
-               <div  ng-repeat="patient in patients.data">
-                    <div class="well well-sm" >
-                        <legend>Patient Info</legend>
-
-                          <div class="row">
-                              <div class="col-md-4">
-                      <h4>
-                          {{patient.name}}</h4>
-                      <p>
-                         <i class="fa fa-info"></i> &nbsp;{{patient.id}}
-                         <br />
-                          <i class="fa fa-clock-o"></i> &nbsp; {{patient.age}}
-                          <br />
-                          <i class="fa fa-birthday-cake"></i> &nbsp; {{patient.dob}}</p>
-                      <!-- Split button -->
-                      <br/>
-                    </div>
-                      <div class="col-md-6">
-                      <div class="form-group">
-
-                        <a title="Edit Patient" ng-click="searchPatient()" class="btn btn-block btn-info">
-                      <i class="fa fa-pencil fa-fw"></i> Edit Patient
-                        </a>
-
-                        <a title="Create Prescription" ng-href="#/prescribe" class="btn btn-block btn-info">
-                      <i class="fa fa-ambulance fa-fw" ></i> Create Prescription
-                        </a>
-                     </div>
-                   </div>
-                  </div>
-
-            </div>
-          </div>
-      </div>
+									<table class="table">
+													<thead>
+																	<tr>
+																					<th>Tx ID</th>
+																					<th>Transaction Date</th>
+																					<th>Merchant Name</th>
+																					<th>Transaction Category</th>
+																					<th>Transaction Amount</th>
+																					<th></th>
+																	</tr>
+													</thead>
+													<tbody ng-repeat="transaction in transactions">
+															<tr>
+																<td >{{transaction.id}}</td>
+																	<td>{{transaction.transactionDate}}</td>
+																		<td>{{transaction.transactionMerchant}}</td>
+																			<td>{{transaction.transactionCategory}}</td>
+																				<td>{{transaction.transactionAmount}}</td>
 
 
+															</tr>
+													</tbody>
+
+								 </table>
+
+						</div>
 </div>
 </div>
-</div>
-
 </div>
 </div>

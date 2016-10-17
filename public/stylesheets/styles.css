@@ -553,7 +553,7 @@ a.bg-danger:hover {
 		padding: 0;
 		overflow-x: hidden;
 		overflow-y: auto;
-		background-color: #fff;
+		background-color: #fffff;
 		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
 	}
 	.navbar-header {

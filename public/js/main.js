@@ -1,6 +1,6 @@
-var pharmFE = angular.module('pharmFE', ['ngRoute','ngMessages','ngStorage']);
+var cards = angular.module('cards', ['ngRoute','ngMessages','ngStorage']);
 
-pharmFE.config(function ($routeProvider) {
+cards.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'partials/home.html',
@@ -22,19 +22,7 @@ pharmFE.config(function ($routeProvider) {
       access: {restricted: false}
     })
 
-    .when('/prescribe', {
-      templateUrl: 'partials/prescription.html',
-      access: {restricted: true}
 
-      })
-
-      .when('/printlabel', {
-        templateUrl: 'partials/prescriptionlabel.html'
-      })
-
-      .when('/tasks', {
-        templateUrl: 'partials/tasks.html'
-      })
 
     .otherwise({
       redirectTo: '/'

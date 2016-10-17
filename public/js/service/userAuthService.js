@@ -1,4 +1,4 @@
-angular.module('pharmFE').factory('AuthService',
+angular.module('cards').factory('AuthService',
   ['$q', '$timeout', '$http',
   function ($q, $timeout, $http) {
 
@@ -16,7 +16,7 @@ angular.module('pharmFE').factory('AuthService',
     });
 
 
-    
+
     function isLoggedIn() {
       if(user) {
         return true;
