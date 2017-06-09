@@ -16,7 +16,7 @@ app.controller('autocompleteController', function($scope, $http) {
 
 // BigTable via BigQuery
 
-  $http.get("http://localhost:8000/ecomm/api/getProducts/"+productname).success(function(data){
+  $http.get("http://localhost:8081/ecomm/api/getProducts/"+productname).success(function(data){
         //$scope.countries = data;
         //console.log(angular.fromJson(data));
         $scope.products = data;
