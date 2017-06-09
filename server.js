@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 //var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8081;
 var app = express();
 var productappRoutes = require('./routes/productssvc');
 
