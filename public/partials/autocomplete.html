@@ -1,0 +1,15 @@
+<div>
+<script type="text/ng-template" id="customTemplate.html">
+  <a>
+      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+      <i>({{match.model.capital}})</i>
+  </a>
+</script>
+<blockquote><h1><a href="http://angularcode.com/how-to-create-a-facebook-style-autocomplete-using-angularjs/">Product Catalog autocomplete / typeahead using GCE Cloud Technologies</a></h1></blockquote>
+<form class="form-search" ng-controller="autocompleteController">
+    Selected Products: {{selectedProducts}}
+        <br><br>
+        <input type="text" ng-model="selectedProducts" ng-blur="getProducts()" placeholder="Search Products" typeahead="c as c.Value for c in products.products | filter:$viewValue | limitTo:10" typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' typeahead-template-url="customTemplate.html" class="form-control" style="width:350px;">
+        <i class="icon-search nav-search-icon"></i>
+</form>
+</div>

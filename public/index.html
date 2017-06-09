@@ -1,67 +1,41 @@
-<!doctype html>
-<html >
+<html ng-app="gcecatalog">
+    <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/autocomplete.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700" rel="stylesheet" type="text/css">
+    <title>Product Catalog Search using GCE BigTable and BigQuery</title>
+    </head>
+    <body>
 
-<head>
-  <meta charset="utf-8">
-  <title>Discover Cards Login</title>
-  <!-- styles -->
-  <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
-  <!-- <link rel='stylesheet' href='stylesheets/style.css'/> -->
-   <link href="stylesheets/styles.css" rel="stylesheet">
-   <link href="stylesheets/bootstrap-table.css" rel="stylesheet">
+    <div class="navbar navbar-default" id="navbar">
+    <div class="container" id="navbar-container">
+	<div class="navbar-header">
+		<a href="#" class="navbar-brand">
+			<small>
+				<i class="glyphicon glyphicon glyphicon-log-out"></i>
+				GCE Demo
+			</small>
+		</a><!-- /.brand -->
 
-<!--  <link href='stylesheets/rotating-card.css' rel='stylesheet' /> -->
-  <!-- SCROLLS -->
-  <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+	</div><!-- /.navbar-header -->
+	<div class="navbar-header pull-right" role="navigation">
+      
+	</div>
+	</div>
+	</div>
+	<div class="row">
+    	<div class="container">
 
-</head>
-<body ng-app="cards">
+    		<div class="col-sm-9">
+    			<div ng-include src="'partials/autocomplete.html'"></div>
+    		</div>
 
-    <div ng-view></div>
+    	</div>
+    </div>
 
-
- <!-- <link href="stylesheets/bootstrap-material-design.min.css" rel="stylesheet"> -->
-  <!--  <link href="stylesheets/ripples.min.css" rel="stylesheet">
-      <!-- <link rel="stylesheet" href="stylesheets/mdb.min.css" /> -->
-     <!-- scripts -->
-  <script src="/js/vendor/jquery-2.2.1.min.js"></script>
-  <script src="/js/vendor/bootstrap.min.js"></script>
-  <script src="/js/vendor/angular.min.js"></script>
-  <script src="/js/vendor/angular-messages.min.js"></script>
-  <script src="/js/vendor/ngStorage.min.js"></script>
-  <script src="/js/vendor/angular-route.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/service/userAuthService.js"></script>
-  <script src="/js/service/CreditcardsService.js"></script>
-  
-  <script src="/js/controller/creditcardController.js"></script>
-  <script src="/js/controller/userAuthenticationCtrl.js"></script>
-  <script src="/js/directives/drugautocomplete.js"></script>
-  <script src="/js/vendor/moment.min.js"></script>
-  <script src="js/vendor/ripples.min.js"></script>
-  <script src="js/vendor/material.min.js"></script>
-  <script src="js/vendor/lumino.glyphs.js"></script>
-  <script src="js/vendor/bootstrap-table.js"></script>
-
-  <script>
-
-
-  $(document).on('click', '.panel-heading span.clickable', function(e){
-      var $this = $(this);
-  	if(!$this.hasClass('panel-collapsed')) {
-  		$this.parents('.panel').find('.panel-body').slideUp();
-  		$this.addClass('panel-collapsed');
-  		$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-  	} else {
-  		$this.parents('.panel').find('.panel-body').slideDown();
-  		$this.removeClass('panel-collapsed');
-  		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-  	}
-  })
-  </script>
-
-
-
-
-</body>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.9.0.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    </body>
 </html>
